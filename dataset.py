@@ -102,22 +102,22 @@ def preprocess_cifar(image_size):
 
 def prepare_dataset(dataset_name, split, image_size, batch_size):
     preprocessors = {
-        "caltech_birds2011": preprocess_birds,
-        "oxford_flowers102": preprocess_flowers,
-        "celeb_a": preprocess_celeba,
-        "cifar10": preprocess_cifar,
+        #"caltech_birds2011": preprocess_birds,
+        "playable": preprocess_flowers,
+        #"celeb_a": preprocess_celeba,
+        #"cifar10": preprocess_cifar,
     }
     preprocess_image = preprocessors[dataset_name](image_size)
 
     split_index = {"train": 0, "validation": 1}
     split_names = {
-        "caltech_birds2011": ["train", "test"],
-        "oxford_flowers102": [
+        #"caltech_birds2011": ["train", "test"],
+        "playable": [
             "train[:70%]+validation[:70%]+test[:70%]",
             "train[70%:]+validation[70%:]+test[70%:]",
         ],
-        "celeb_a": ["train", "validation"],
-        "cifar10": ["train", "test"],
+        #"celeb_a": ["train", "validation"],
+        #"cifar10": ["train", "test"],
     }
     split = split_names[dataset_name][split_index[split]]
 
